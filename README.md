@@ -196,13 +196,6 @@ Open [http://localhost:5173](http://localhost:5173) in your web browser.
 
 ---
 
-## Screenshots
-
-| Landing Page (Hero Section) | Strategy Room Dashboard |
-|---|---|
-| ![Landing Page Preview](https://raw.githubusercontent.com/VIDYANKSHINI/Captain-Cool/main/frontend/public/landing_hero.png) | ![Strategy Room Debate](https://raw.githubusercontent.com/VIDYANKSHINI/Captain-Cool/main/frontend/public/dashboard_debate.png) |
-
----
 
 ## Folder Structure
 ```
