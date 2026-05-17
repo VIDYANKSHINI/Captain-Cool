@@ -7,9 +7,10 @@ Captain Cool AI is a production-ready, futuristic sports-broadcast style dashboa
 
 ## Banner & Live Demo Preview
 <img width="1572" height="805" alt="Screenshot 2026-05-17 213121" src="https://github.com/user-attachments/assets/1f5b7db4-027a-4173-b701-5007553fca0c" />
+<img width="1623" height="907" alt="Screenshot 2026-05-17 213227" src="https://github.com/user-attachments/assets/7c93ecab-51eb-40ef-bf52-891c40691f35" />
+<img width="1912" height="902" alt="Screenshot 2026-05-17 213155" src="https://github.com/user-attachments/assets/b8051a42-d03d-4166-9b30-96a7b9c02d2f" />
 
-![Captain Cool AI Dashboard](https://raw.githubusercontent.com/VIDYANKSHINI/Captain-Cool/main/frontend/public/landing_preview.png)
-*(A professional sports broadcast HUD-style layout with high-end glassmorphism, animated telemetry, live score overlays, and sequential AI timeline analysis.)*
+
 
 ---
 
