@@ -15,7 +15,7 @@ export default function VoiceCaptain() {
             <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-pulse" /> Voice Mode Beta
           </div>
           <h1 className="font-display font-black text-5xl md:text-6xl text-white mb-4">
-            🎙️ Voice <span className="text-neon-blue">Captain</span>
+            Voice <span className="text-neon-blue">Captain</span>
           </h1>
           <p className="text-slate-400 text-lg mb-12">
             Speak directly to your AI captain — like a real dugout conversation. Ask any tactical question in natural language.

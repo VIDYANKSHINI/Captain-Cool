@@ -10,7 +10,7 @@ export default function LiveMatchMode() {
             <span className="w-1.5 h-1.5 bg-red-400 rounded-full animate-pulse" /> Live Feed
           </div>
           <h1 className="font-display font-black text-5xl md:text-6xl text-white mb-4">
-            📺 Live <span className="text-neon-blue">Match Mode</span>
+            Live <span className="text-neon-blue">Match Mode</span>
           </h1>
           <p className="text-slate-400 text-lg mb-12">
             Paste a Cricbuzz or ESPN Cricinfo URL and get real-time AI tactical analysis for the current match situation.

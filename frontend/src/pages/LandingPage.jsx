@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
-import { Trophy, Zap, Brain, Mic, Network, ChevronRight, BarChart2, Star, Link2, GitBranch } from 'lucide-react';
+import { Trophy, Zap, Brain, Mic, Network, ChevronRight, BarChart2, Star, Link2, GitBranch, LineChart, Thermometer, AlertTriangle } from 'lucide-react';
 
 /* ── Particles ─────────────────────────────────────────────────────────── */
 function Particles() {
@@ -90,29 +90,32 @@ function FeatureCard({ item, index }) {
 
 /* ── Agent showcard ────────────────────────────────────────────────────── */
 const agents = [
-  { emoji: '📊', name: 'Stats Analyst', role: 'Data-Driven', color: '#6366f1', border: 'rgba(99,102,241,0.3)', bg: 'rgba(99,102,241,0.06)', specialty: 'Matchups, economy rates, historical stats' },
-  { emoji: '🎯', name: 'Pitch Analyst', role: 'Conditions Expert', color: '#10b981', border: 'rgba(16,185,129,0.3)', bg: 'rgba(16,185,129,0.06)', specialty: 'Dew factor, pitch behavior, venue conditions' },
-  { emoji: '⚡', name: "Devil's Advocate", role: 'Risk Analyst', color: '#ef4444', border: 'rgba(239,68,68,0.3)', bg: 'rgba(239,68,68,0.06)', specialty: 'Finding flaws, stress-testing decisions' },
-  { emoji: '🎙️', name: 'Commentator', role: 'Shastri-AI', color: '#f59e0b', border: 'rgba(245,158,11,0.3)', bg: 'rgba(245,158,11,0.06)', specialty: 'Fan-friendly IPL commentary style' },
+  { icon: LineChart, name: 'Stats Analyst', role: 'Data-Driven', color: '#6366f1', border: 'rgba(99,102,241,0.3)', bg: 'rgba(99,102,241,0.06)', specialty: 'Matchups, economy rates, historical stats' },
+  { icon: Thermometer, name: 'Pitch Analyst', role: 'Conditions Expert', color: '#10b981', border: 'rgba(16,185,129,0.3)', bg: 'rgba(16,185,129,0.06)', specialty: 'Dew factor, pitch behavior, venue conditions' },
+  { icon: AlertTriangle, name: "Devil's Advocate", role: 'Risk Analyst', color: '#ef4444', border: 'rgba(239,68,68,0.3)', bg: 'rgba(239,68,68,0.06)', specialty: 'Finding flaws, stress-testing decisions' },
+  { icon: Mic, name: 'Commentator', role: 'Shastri-AI', color: '#f59e0b', border: 'rgba(245,158,11,0.3)', bg: 'rgba(245,158,11,0.06)', specialty: 'Fan-friendly IPL commentary style' },
 ];
 
 function AgentShowcard({ agent, index }) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true });
+  const IconComponent = agent.icon;
   return (
     <motion.div
       ref={ref}
       initial={{ opacity: 0, scale: 0.92 }}
       animate={inView ? { opacity: 1, scale: 1 } : {}}
       transition={{ delay: index * 0.1, type: 'spring', bounce: 0.3 }}
-      className="glass-card p-6 relative overflow-hidden"
+      className="glass-card p-6 relative overflow-hidden flex flex-col"
       style={{ borderColor: agent.border, background: agent.bg }}
     >
       <div className="absolute -top-6 -right-6 w-24 h-24 rounded-full blur-2xl" style={{ background: agent.bg }} />
-      <div className="text-3xl mb-3">{agent.emoji}</div>
+      <div className="w-10 h-10 rounded-xl flex items-center justify-center mb-4 border" style={{ borderColor: agent.border, background: agent.bg }}>
+        <IconComponent style={{ color: agent.color }} className="w-5 h-5" />
+      </div>
       <h3 className="font-display font-bold text-lg text-white">{agent.name}</h3>
       <p className="text-xs font-semibold mb-3" style={{ color: agent.color }}>{agent.role}</p>
-      <p className="text-sm text-slate-400">{agent.specialty}</p>
+      <p className="text-sm text-slate-400 leading-relaxed flex-1">{agent.specialty}</p>
       <div className="badge-online mt-4 w-fit">
         <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />Active
       </div>
@@ -161,8 +164,8 @@ export default function LandingPage() {
           {/* Title */}
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1, duration: 0.7 }}>
             <h1 className="font-display font-black leading-none mb-6" style={{ fontSize: 'clamp(3rem, 10vw, 7rem)' }}>
-              <span className="text-white">🏏 Captain</span><br />
-              <span className="text-gradient-ipl">Cool AI</span>
+              <span className="text-white">Captain</span><br />
+              <span className="text-white">Cool AI</span>
             </h1>
           </motion.div>
 
@@ -184,19 +187,19 @@ export default function LandingPage() {
               onClick={() => navigate('/dashboard')}
               className="group inline-flex items-center gap-2 px-8 py-4 rounded-xl font-bold text-base cursor-pointer"
               style={{ background: 'linear-gradient(135deg, #00d4ff, #22d3ee)', color: '#020817' }}>
-              🧠 Start Strategy
+              Start Strategy
               <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </motion.button>
             <motion.button whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}
               onClick={() => navigate('/voice')}
               className="btn-outline text-base px-8 py-4">
-              🎙️ Voice Mode
+              Voice Mode
             </motion.button>
             <motion.button whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}
               onClick={() => navigate('/architecture')}
               className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-bold text-base text-slate-400 cursor-pointer"
               style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)' }}>
-              📐 Architecture
+              Architecture
             </motion.button>
           </motion.div>
 
@@ -266,7 +269,7 @@ export default function LandingPage() {
               <Link2 className="w-4 h-4" /> GitHub
             </a>
             <button onClick={() => navigate('/dashboard')} className="btn-outline text-sm">
-              🚀 Launch App
+              Launch App
             </button>
           </div>
         </div>
