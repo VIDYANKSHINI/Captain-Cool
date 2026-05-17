@@ -1,143 +1,263 @@
-# Captain Cool AI — Multi-Agent IPL Match Strategist 🏏🤖
+# Captain Cool AI 🏏🤖
+### Multi-Agent IPL Match Strategist Powered by Google Gemini 2.5 Flash
 
-Welcome to **Captain Cool AI**, a production-ready hackathon project built for the **Agentic Premier League (APL)** by GDG Cloud Pune.
+Captain Cool AI is a production-ready, futuristic sports-broadcast style dashboard that acts as a digital dugout. It orchestrates **5 specialized AI agents** inside a collaborative debate mesh to analyze complex T20 match situations, execute live meteorological tool calls, evaluate counterfactual risks, and propose champion-level tactical decisions with high-fidelity confidence scores.
 
-This application simulates the brain of an IPL captain. It orchestrates **5 collaborating Google Gemini AI Agents** to analyze live match situations, debate tactics, assess risks, and make a final, decisive captaincy call.
+---
+
+## 📺 Banner & Live Demo Preview
+
+![Captain Cool AI Dashboard](https://raw.githubusercontent.com/VIDYANKSHINI/Captain-Cool/main/frontend/public/landing_preview.png)
+*(A professional sports broadcast HUD-style layout with high-end glassmorphism, animated telemetry, live score overlays, and sequential AI timeline analysis.)*
 
 ---
 
 ## 🎯 Problem Statement
+In high-stakes T20 cricket like the IPL, decision-making is incredibly fast-paced. Coaches and captains are flooded with raw data: matchups, venue humidity, run rates, boundary dimensions, and player history. 
 
-In high-stakes T20 cricket (like the IPL), captains and coaches are overwhelmed with data (matchups, pitch conditions, dew factor, win probabilities). However, raw data isn't enough; it requires *interpretation, debate, and instinct*. 
+However:
+- **Data alone lacks strategy**: Generic raw metrics do not translate into situational dugout wisdom.
+- **Biased decisions cost matches**: Captains make instinctual choices without stress-testing worst-case risks.
+- **Generic AI is flat**: Standard single-agent LLM prompts fail to weigh complex, competing perspectives.
 
-**The Solution:** Captain Cool AI acts as a digital dugout. Instead of a single AI giving a generic answer, we use a **Multi-Agent Architecture** where specialized AI personas debate with each other. A Strategist proposes a plan, a Stats Analyst grounds it in data using real-world API tool calls, a Devil's Advocate highlights the risks, and a Captain makes the final decision. 
+**Why it matters:** A single tactical error (e.g., bowling a spinner with heavy dew, or bad field placements against a hitter) instantly flips a 100-crore franchise match.
 
 ---
 
-## 🏗 Architecture & Data Flow
+## 💡 Solution
+**Captain Cool AI** solves this by establishing a **Multi-Agent Orchestration Mesh** that acts as a real-time advisory committee. Instead of a single flat answer, specialized Gemini agents—each with distinct roles, system prompts, and tool access—sequentially debate the match situation:
+1. **The Stats Analyst** fetches real-world weather data.
+2. **The Pitch Analyst** determines swing and spin.
+3. **The Devil's Advocate** stress-tests proposed plans.
+4. **The Captain Strategist** synthesizes the final decisions.
+5. **The Commentator** brings Shastri-style hype to the output.
+
+---
+
+## ✨ Features
+- **Sequential Multi-Agent Debate**: Watch specialized Gemini agents discuss and challenge your tactical decisions in real time.
+- **Native Weather Tool Calling**: Real-time stadium telemetry (temperature, humidity, dew warnings) fetched dynamically from the **Open-Meteo API** using native Gemini Function Calling.
+- **Futuristic Sports HUD Aesthetic**: Gorgeous dark-mode styling with custom neon borders, active score widgets, animated CSS waveforms, and spring-physics page routing.
+- **Win Probability Gauge**: Beautiful custom SVG radial gauge displaying real-time confidence scores and counterfactual situational analysis.
+- **Live Match Importer (Preview)**: A clean live scoreboard parser designed to ingest Cricbuzz and ESPN Cricinfo scorecards.
+- **Voice dugout Captain (Preview)**: Speak questions directly to the dugout and simulate audio-visual Dhoni-style responses.
+- **Visual Architecture Blueprint**: A live graphical walkthrough demonstrating the orchestrated five-agent step-by-step pipeline.
+
+---
+
+## 🛠 Tech Stack
+
+### Frontend
+- **Framework**: React 18 + Vite
+- **Styling**: Tailwind CSS v3 + Custom HSL Variables
+- **Animations**: Framer Motion (spring transitions, stagger feeds, particles)
+- **Icons**: Lucide React (Premium emoji-free sports layout)
+
+### Backend
+- **Runtime**: Node.js + Express
+- **AI SDK**: Official `@google/genai` (Agent Development Kit approach)
+
+### Database / Telemetry
+- **API integrations**: Open-Meteo Meteorological API (Grounded Weather coordinates)
+
+### AI Model
+- **Core LLM**: `gemini-2.5-flash` (Engineered for multi-turn reasoning speed & native tool schema execution)
+
+---
+
+## 📐 Architecture Diagram
 
 ```mermaid
 graph TD
-    A[User / Coach] -->|Inputs Match Context| B(React Frontend)
-    B -->|POST /api/debate| C{Node.js Orchestrator}
-    C -->|Parallel execution| D[Strategist Agent]
-    C -->|Parallel execution| E[Stats Analyst Agent]
-    E <-->|Tool Call: getVenueWeather| F((Open-Meteo API))
+    A[User / Cricket Coach] -->|Inputs Match State| B(React Frontend - Vite)
+    B -->|POST /api/debate| C{Express Orchestrator}
+    C -->|Instantiates Thread| D[Stats Analyst Agent]
+    D <-->|Native Tool Call: getVenueWeather| E((Open-Meteo API))
+    C -->|Thread Context| F[Pitch Analyst Agent]
     D --> G[Devil's Advocate Agent]
-    E --> G
-    G --> H[Captain Strategist]
-    H --> I[Commentary Agent]
-    I --> C
+    F --> G
+    G -->|Stress Tests Plan| H[Captain Strategist Agent]
+    H -->|Final Decision & Win Prob| I[Commentary Agent]
+    I -->|Synthesized Pipeline JSON| C
     C -->|JSON Stream/Response| B
-    B -->|Renders UI| A
+    B -->|Interactive Broadcast HUD| A
 ```
-
-Captain Cool AI is a full-stack application built with React/Vite on the frontend and Node.js/Express on the backend. 
-
-- **Frontend**: A premium, dark-mode sports dashboard built with Tailwind CSS and Framer Motion for dynamic timeline animations.
-- **Backend Orchestrator**: An Express server that acts as the "Strategy Room."
-- **AI Brain**: Powered by the official `@google/genai` SDK and Gemini 2.5 Flash, utilizing parallel agent execution and native Tool Calling.
 
 ---
 
-## 🤖 Agent Descriptions
+## ⚙️ How It Works (Step-by-Step Flow)
+1. **Match Initialization**: The coach inputs stadium venue, striker details, bowler, batting/bowling teams, and exact scorecard values.
+2. **Environmental Grounding**: The **Stats Analyst** executes a tool call using stadium coordinates to retrieve real-time weather telemetry. Dew risk is calculated based on temperature-to-humidity thresholds.
+3. **Drafting Strategy**: The **Pitch Analyst** outlines specific game plans based on match phase (Powerplay/Middle/Death) and weather.
+4. **Stress Testing**: The **Devil's Advocate** acts as a cynic, aggressively finding flaws in the proposed strategy (e.g. bowler matchup risks, boundary configurations).
+5. **Dhoni-Style Decision**: The **Captain Strategist** consumes the entire debate log, makes a final structured decision, outputs counterfactual alternatives, and scores the win probability.
+6. **Hype Generation**: The **Commentator** translates the outcome into an authentic, energetic IPL commentator commentary block.
 
-The system utilizes a 5-Agent Mesh:
+---
 
-1. **The Strategist Agent**: Analyzes the raw match inputs (overs, score, phase, pitch) and formulates a primary tactical game plan.
-2. **The Stats Analyst Agent (Tool User)**: Grounded in data. It actively executes a **Gemini Tool Call** to fetch live weather/dew conditions for the specific stadium and supports the strategy with historical probabilities.
-3. **The Devil's Advocate Agent**: The cynic. It takes the output of the first two agents and aggressively searches for fatal flaws and tactical risks.
-4. **The Captain Strategist Agent**: The decision-maker (think MS Dhoni). It consumes the entire debate, acknowledges the risks, and outputs a highly structured JSON response containing the Final Decision, Confidence Score, Win Probability, Field Setup, and Counterfactuals.
-5. **The Commentary Agent**: Takes the Captain's decision and translates it into hype-filled, authentic IPL commentary for the fans.
+## 🚀 Installation & Local Development
+
+### Prerequisites
+- Node.js (v18+ recommended)
+- NPM or Yarn
+- A Google Gemini API Key (from Google AI Studio)
+
+### Step 1: Clone the Repository
+```bash
+git clone https://github.com/VIDYANKSHINI/Captain-Cool.git
+cd Captain-Cool
+```
+
+### Step 2: Set up the Backend
+```bash
+cd backend
+npm install
+```
+Configure your environment variables:
+Create a `.env` file in the `/backend` folder:
+
+Start the backend service:
+```bash
+npm run dev
+```
+
+### Step 3: Set up the Frontend
+In a new terminal window:
+```bash
+cd ../frontend
+npm install
+npm run dev
+```
+Open [http://localhost:5173](http://localhost:5173) in your web browser.
+
+---
+
+
+## 🏏 Usage Guide
+1. Launch the application and enter the **Strategy Room** via the navigation bar.
+2. Enter the current match context (e.g. CSK vs MI, Wankhede Stadium, Striker name, Target to defend, Current Bowler).
+3. Hit **Initialize Strategy Protocol**.
+4. Watch the telemetry box load live stadium metrics, followed by the sequential staggering debate thread of the specialized agents.
+5. Click on individual cards to expand detailed debate logs, view the confidence meter, and copy Shastri-AI commentary transcripts.
+
+---
+
+## 📡 API Endpoints
+
+### 1. Execute Multi-Agent Debate
+*   **Endpoint**: `/api/debate`
+*   **Method**: `POST`
+*   **Content-Type**: `application/json`
+*   **Payload**:
+```json
+{
+  "battingTeam": "Chennai Super Kings",
+  "bowlingTeam": "Mumbai Indians",
+  "score": "180/4",
+  "overs": "18.2",
+  "target": "195",
+  "striker": "MS Dhoni (28 off 12)",
+  "nonStriker": "Ravindra Jadeja (12 off 8)",
+  "bowler": "Jasprit Bumrah",
+  "venue": "Wankhede Stadium, Mumbai",
+  "impactPlayerAvailable": true
+}
+```
+*   **Response**:
+```json
+{
+  "weather": {
+    "temperature": "29°C",
+    "humidity": "78%",
+    "dewWarning": "High",
+    "isRealData": true
+  },
+  "timeline": [
+    { "agent": "Stats Analyst", "role": "analyst", "text": "..." },
+    { "agent": "Pitch Analyst", "role": "pitch", "text": "..." },
+    { "agent": "Devil's Advocate", "role": "devil", "text": "..." },
+    { "agent": "Captain Strategist", "role": "captain", "confidence": "85", "text": "..." },
+    { "agent": "Commentator", "role": "commentary", "text": "..." }
+  ]
+}
+```
+
+---
+
+## 🧠 AI / Agent Workflow & Prompts
+
+### Agent Personas
+*   **Stats Analyst**: Strict, data-driven, calculating. Translates coordinates, evaluates moisture levels, and warns about bowlers' average ER under dew.
+*   **Pitch Analyst**: Conditions assessor. Focuses on spin index, turf hardness, boundary metrics, and swing duration.
+*   **Devil's Advocate**: Severe risk analyst. Evaluates counter-matchups, potential dropped catches, edge cases, and run-rate pressures.
+*   **Captain Strategist (MS Dhoni Cognitive Clone)**: Calm, situational, intuitive, and decisive. Balances risk, optimizes field placements, and chooses the highest probability of success.
 
 ---
 
 ## 📸 Screenshots
 
-*(Replace these placeholders with actual screenshots of your application)*
-
-- **[Screenshot 1 Placeholder: The Strategy Nexus Dashboard showing match parameters]**
-- **[Screenshot 2 Placeholder: The Animated Agent Debate Timeline]**
-- **[Screenshot 3 Placeholder: The Captain's Final Decision Card with Win Probability & Field Setup]**
+| Landing Page (Hero Section) | Strategy Room Dashboard |
+|---|---|
+| ![Landing Page Preview](https://raw.githubusercontent.com/VIDYANKSHINI/Captain-Cool/main/frontend/public/landing_hero.png) | ![Strategy Room Debate](https://raw.githubusercontent.com/VIDYANKSHINI/Captain-Cool/main/frontend/public/dashboard_debate.png) |
 
 ---
 
-## ♊ Gemini & ADK Usage
-
-This project strictly adheres to the Google AI ecosystem:
-- **Model**: `gemini-2.5-flash` is used for its exceptional speed and reasoning capabilities, crucial for running 5 agents sequentially/in parallel without user fatigue.
-- **SDK**: Utilizes the newly released `@google/genai` (Agent Development Kit approach) for native integration, system instructions (personas), and structured generation.
-
----
-
-## 🛠 Tool Calling Explanation
-
-We implement **Real Tool Calling** (not fake JSON). 
-The Stats Analyst Agent is provided with a `getVenueWeather` tool declaration. When analyzing the match, Gemini dynamically pauses, outputs a `functionCall` to request live Open-Meteo API data based on the user's selected stadium (e.g., "Wankhede Stadium, Mumbai"), and resumes generation once the Node.js backend returns the real temperature and humidity data to assess the Dew Factor.
-
----
-
-## 🚀 Setup & Deployment Guide
-
-### Prerequisites
-- Node.js installed
-- A valid Google Gemini API Key
-
-### Local Development
-
-**1. Backend Setup**
-\`\`\`bash
-cd backend
-npm install
-\`\`\`
-Create a `.env` file in the `backend` directory:
-\`\`\`env
-PORT=5000
-GEMINI_API_KEY=your_gemini_api_key_here
-\`\`\`
-Start the server:
-\`\`\`bash
-npm run dev
-\`\`\`
-
-**2. Frontend Setup**
-In a new terminal window:
-\`\`\`bash
-cd frontend
-npm install
-npm run dev
-\`\`\`
-Visit `http://localhost:5173` in your browser.
-
-### ☁️ Deployment (Vercel)
-
-**Frontend Deployment (Vercel):**
-1. Connect your GitHub repository to Vercel.
-2. Select the `frontend` directory as the Root Directory.
-3. Framework Preset: `Vite`.
-4. Deploy!
-
-**Backend Deployment (Render/Vercel/Cloud Run):**
-1. Ensure your backend allows CORS from your frontend domain.
-2. Deploy the `backend` folder to a service like Render or Google Cloud Run.
-3. Update the `axios.post('http://localhost:5000/api/debate')` URL in `Dashboard.jsx` to point to your new backend production URL.
+## 📂 Folder Structure
+```
+Captain-Cool/
+├── backend/
+│   ├── src/
+│   │   ├── controllers/
+│   │   │   └── debateController.js    # Multi-agent orchestrator & prompt pipelines
+│   │   ├── services/
+│   │   │   ├── geminiService.js       # @google/genai client initialization & function calling
+│   │   │   └── weatherService.js      # Open-Meteo API integrations
+│   │   └── index.js
+│   ├── .env
+│   └── package.json
+└── frontend/
+    ├── src/
+    │   ├── components/
+    │   │   ├── AgentCard.jsx          # Interactive accordions with custom icons
+    │   │   ├── FinalDecisionCard.jsx  # SVG Radial Gauge with MS Dhoni decision UI
+    │   │   ├── MatchInputForm.jsx     # Clean sport HUD custom dropdowns
+    │   │   └── Navbar.jsx             # Neon glassmorphism responsive nav
+    │   ├── pages/
+    │   │   ├── LandingPage.jsx        # Floating widgets, scroll indices, particle canvas
+    │   │   ├── Dashboard.jsx          # Main Strategy dugout feed
+    │   │   ├── LiveMatchMode.jsx      # Cricbuzz import page preview
+    │   │   ├── VoiceCaptain.jsx       # CSS waveform mic preview page
+    │   │   └── ArchitecturePage.jsx   # Live system blueprint
+    │   ├── index.css                  # Custom styling overrides & global animations
+    │   └── App.jsx
+    ├── tailwind.config.js
+    └── postcss.config.js
+```
 
 ---
 
-## 🎬 Demo Flow
-
-1. **Input**: The user (acting as a coach) lands on the dashboard and inputs a critical match situation (e.g., CSK vs MI, 16.2 overs, Death Overs, Impact player available).
-2. **Initialize**: Clicking "Initialize Strategy Protocol" triggers the backend orchestrator.
-3. **Telemetry**: The UI instantly displays live weather data fetched via the Agent's tool call.
-4. **Debate**: The UI elegantly animates the timeline, revealing the thoughts of the Strategist, Analyst, and Devil's Advocate sequentially.
-5. **Conclusion**: The Captain's Card expands, showing the final verdict, a Win Probability meter, a suggested Field Setup, and the Counterfactual Risk ("What if we bowled spin instead?").
-6. **Commentary**: The flow finishes with an exciting commentary readout.
+## 🔮 Future Scope
+- **Interactive SVG Fielding Map**: A clickable 2D cricket stadium SVG where dots dynamically arrange to match the Captain's field placements.
+- **Deep Historical Scorecard RAG**: Grounding the Stats Agent using a vector database populated with historical IPL ball-by-ball scorecards.
+- **Full Speech synthesis**: Using the Google Cloud Text-to-Speech API to vocalize Shastri-AI's commentaries.
 
 ---
 
-## 🔥 Future Improvements
+## ⚠️ Challenges Faced & Key Learnings
+*   **Tailwind ESM PostCSS Class compilation**: Downgraded to Tailwind v3 and declared custom background colors using global CSS variables inside `index.css` to bypass static config resolution errors in ESM.
+*   **Lucide React Version imports**: Handled version-specific exports elegantly by swapping missing icons for standard high-end components to guarantee hot reloading without compilation locks.
+*   **Real Function Calling groundings**: Handled meteorological telemetry coordinates dynamically by implementing rigorous weather parameter fallbacks to avoid crashes during high API traffic.
 
-- **Voice I/O**: Add Web Speech API to allow coaches to speak the match situation and have the Commentary Agent read out the final decision.
-- **Cricbuzz Integration**: Build a web-scraping tool so users can just paste a live Cricbuzz match URL to auto-fill the inputs.
-- **Match Memory**: Implement a database (Firebase/Supabase) to store agent decisions across overs, allowing the agents to "remember" tactics that failed earlier in the innings.
-- **Visual Field Placements**: Render an actual 2D cricket field SVG with dots representing the Captain's suggested field setup.
+---
+
+## 👥 Team Members
+- **Vidyankshini** - Full-Stack Developer & AI Systems Engineer
+
+---
+
+
+
+## 🤝 Acknowledgements
+- GDG Cloud Pune & Google AI Studio organizers for the Agentic Premier League hackathon.
+- The Open-Meteo meteorological database.
+- Every cricket captain who ever trusted their gut in the final over of an IPL final.
