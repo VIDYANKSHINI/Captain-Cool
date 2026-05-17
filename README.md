@@ -1,18 +1,18 @@
-# Captain Cool AI 🏏🤖
+# Captain Cool AI
 ### Multi-Agent IPL Match Strategist Powered by Google Gemini 2.5 Flash
 
 Captain Cool AI is a production-ready, futuristic sports-broadcast style dashboard that acts as a digital dugout. It orchestrates **5 specialized AI agents** inside a collaborative debate mesh to analyze complex T20 match situations, execute live meteorological tool calls, evaluate counterfactual risks, and propose champion-level tactical decisions with high-fidelity confidence scores.
 
 ---
 
-## 📺 Banner & Live Demo Preview
+## Banner & Live Demo Preview
 
 ![Captain Cool AI Dashboard](https://raw.githubusercontent.com/VIDYANKSHINI/Captain-Cool/main/frontend/public/landing_preview.png)
 *(A professional sports broadcast HUD-style layout with high-end glassmorphism, animated telemetry, live score overlays, and sequential AI timeline analysis.)*
 
 ---
 
-## 🎯 Problem Statement
+## Problem Statement
 In high-stakes T20 cricket like the IPL, decision-making is incredibly fast-paced. Coaches and captains are flooded with raw data: matchups, venue humidity, run rates, boundary dimensions, and player history. 
 
 However:
@@ -24,7 +24,7 @@ However:
 
 ---
 
-## 💡 Solution
+## Solution
 **Captain Cool AI** solves this by establishing a **Multi-Agent Orchestration Mesh** that acts as a real-time advisory committee. Instead of a single flat answer, specialized Gemini agents—each with distinct roles, system prompts, and tool access—sequentially debate the match situation:
 1. **The Stats Analyst** fetches real-world weather data.
 2. **The Pitch Analyst** determines swing and spin.
@@ -34,7 +34,7 @@ However:
 
 ---
 
-## ✨ Features
+## Features
 - **Sequential Multi-Agent Debate**: Watch specialized Gemini agents discuss and challenge your tactical decisions in real time.
 - **Native Weather Tool Calling**: Real-time stadium telemetry (temperature, humidity, dew warnings) fetched dynamically from the **Open-Meteo API** using native Gemini Function Calling.
 - **Futuristic Sports HUD Aesthetic**: Gorgeous dark-mode styling with custom neon borders, active score widgets, animated CSS waveforms, and spring-physics page routing.
@@ -45,7 +45,7 @@ However:
 
 ---
 
-## 🛠 Tech Stack
+## Tech Stack
 
 ### Frontend
 - **Framework**: React 18 + Vite
@@ -65,7 +65,7 @@ However:
 
 ---
 
-## 📐 Architecture Diagram
+## Architecture Diagram
 
 ```mermaid
 graph TD
@@ -85,7 +85,7 @@ graph TD
 
 ---
 
-## ⚙️ How It Works (Step-by-Step Flow)
+## How It Works (Step-by-Step Flow)
 1. **Match Initialization**: The coach inputs stadium venue, striker details, bowler, batting/bowling teams, and exact scorecard values.
 2. **Environmental Grounding**: The **Stats Analyst** executes a tool call using stadium coordinates to retrieve real-time weather telemetry. Dew risk is calculated based on temperature-to-humidity thresholds.
 3. **Drafting Strategy**: The **Pitch Analyst** outlines specific game plans based on match phase (Powerplay/Middle/Death) and weather.
@@ -95,7 +95,7 @@ graph TD
 
 ---
 
-## 🚀 Installation & Local Development
+## Installation & Local Development
 
 ### Prerequisites
 - Node.js (v18+ recommended)
@@ -133,7 +133,7 @@ Open [http://localhost:5173](http://localhost:5173) in your web browser.
 ---
 
 
-## 🏏 Usage Guide
+## Usage Guide
 1. Launch the application and enter the **Strategy Room** via the navigation bar.
 2. Enter the current match context (e.g. CSK vs MI, Wankhede Stadium, Striker name, Target to defend, Current Bowler).
 3. Hit **Initialize Strategy Protocol**.
@@ -142,7 +142,7 @@ Open [http://localhost:5173](http://localhost:5173) in your web browser.
 
 ---
 
-## 📡 API Endpoints
+## API Endpoints
 
 ### 1. Execute Multi-Agent Debate
 *   **Endpoint**: `/api/debate`
@@ -184,7 +184,7 @@ Open [http://localhost:5173](http://localhost:5173) in your web browser.
 
 ---
 
-## 🧠 AI / Agent Workflow & Prompts
+## AI / Agent Workflow & Prompts
 
 ### Agent Personas
 *   **Stats Analyst**: Strict, data-driven, calculating. Translates coordinates, evaluates moisture levels, and warns about bowlers' average ER under dew.
@@ -194,7 +194,7 @@ Open [http://localhost:5173](http://localhost:5173) in your web browser.
 
 ---
 
-## 📸 Screenshots
+## Screenshots
 
 | Landing Page (Hero Section) | Strategy Room Dashboard |
 |---|---|
@@ -202,7 +202,7 @@ Open [http://localhost:5173](http://localhost:5173) in your web browser.
 
 ---
 
-## 📂 Folder Structure
+## Folder Structure
 ```
 Captain-Cool/
 ├── backend/
@@ -236,28 +236,28 @@ Captain-Cool/
 
 ---
 
-## 🔮 Future Scope
+## Future Scope
 - **Interactive SVG Fielding Map**: A clickable 2D cricket stadium SVG where dots dynamically arrange to match the Captain's field placements.
 - **Deep Historical Scorecard RAG**: Grounding the Stats Agent using a vector database populated with historical IPL ball-by-ball scorecards.
 - **Full Speech synthesis**: Using the Google Cloud Text-to-Speech API to vocalize Shastri-AI's commentaries.
 
 ---
 
-## ⚠️ Challenges Faced & Key Learnings
+## Challenges Faced & Key Learnings
 *   **Tailwind ESM PostCSS Class compilation**: Downgraded to Tailwind v3 and declared custom background colors using global CSS variables inside `index.css` to bypass static config resolution errors in ESM.
 *   **Lucide React Version imports**: Handled version-specific exports elegantly by swapping missing icons for standard high-end components to guarantee hot reloading without compilation locks.
 *   **Real Function Calling groundings**: Handled meteorological telemetry coordinates dynamically by implementing rigorous weather parameter fallbacks to avoid crashes during high API traffic.
 
 ---
 
-## 👥 Team Members
+## Team Members
 - **Vidyankshini** - Full-Stack Developer & AI Systems Engineer
 
 ---
 
 
 
-## 🤝 Acknowledgements
+## Acknowledgements
 - GDG Cloud Pune & Google AI Studio organizers for the Agentic Premier League hackathon.
 - The Open-Meteo meteorological database.
 - Every cricket captain who ever trusted their gut in the final over of an IPL final.
